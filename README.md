@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# Math, Chemistry & Physics Formulas Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript + Vite application that demonstrates the rendering of mathematical, chemistry, and physics formulas using MathJax. This app showcases how to display complex mathematical expressions and scientific formulas in a web application.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Mathematical Formula Rendering**: Uses [better-react-mathjax](https://www.npmjs.com/package/better-react-mathjax) for high-quality math rendering
+- **Physics Examples**: Includes sample physics problems with formulas like Newton's Second Law, Kinetic Energy, and Ohm's Law
+- **Chemistry Support**: Configured with mhchem package for chemical formula rendering
+- **TypeScript**: Full TypeScript support for type safety
+- **Hot Module Replacement**: Fast development with Vite's HMR
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+3. Open your browser and navigate to the local development URL
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Technologies Used
+
+- **React 19**: Modern React with latest features
+- **TypeScript**: Type-safe JavaScript
+- **Vite**: Fast build tool and development server
+- **MathJax 3**: Mathematical notation rendering
+- **better-react-mathjax**: React wrapper for MathJax
+
+## What You'll See
+
+When you run the app, you'll see a "Physics Test" section with three example problems:
+
+1. **Newton's Second Law**: Calculate acceleration using F = ma
+2. **Kinetic Energy**: Calculate kinetic energy using KE = ½mv²
+3. **Ohm's Law**: Calculate voltage using V = IR
+
+Each problem displays the mathematical formulas using proper LaTeX notation rendered by MathJax, demonstrating how to integrate mathematical expressions into React applications.
+
+## Project Structure
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+src/
+├── App.tsx              # Main app component with MathJax configuration
+├── physics/
+│   └── PhysicsTest.tsx  # Physics problems with formulas
+└── main.tsx             # App entry point
 ```
